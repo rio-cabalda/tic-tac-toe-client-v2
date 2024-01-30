@@ -151,7 +151,7 @@ function MultiPlayerPage() {
                     <button disabled={finishRound} key={index} className={`w-16 h-16 bg-blue-400 capitalize disabled:bg-slate-500 bg-gradient-to-t from-[#1A1C4F] to-[#1A1C4F]  rounded-lg  shadow-xl
                     ${turnArr[index] === 'x' && 'from-[#FFDC80] to-[#FE9C05]'}
                     ${turnArr[index] === 'o' && 'from-[#EE090C] to-[#FF6365]'}
-                    duration-1000`}
+                    duration-1000 overflow-hidden`}
                     onClick={(e)=>handleSelectedBox(e,index)}
                     >{(turnArr[index] === 'x' && <XCard />)|| (turnArr[index] === 'o' && <OCard />)
             
