@@ -11,58 +11,30 @@ function HomePage() {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        // // For testing purposes
-        //     //Delete it, for testing purposes
-        const gameDataKey = 'gameData';
-        const existingGameData = localStorage.getItem(gameDataKey);
-        if (!existingGameData) {
-            // If no data exists, set the initial data to local storage
-            const initialGameData = [];
-        
-            // Convert the object to a JSON string and store it in local storage
-            try {
-                localStorage.setItem(gameDataKey, JSON.stringify(initialGameData));
-                setIsLoading(false);
-                setError(false)
-                setScoreBoard(initialGameData)
-            } catch (error) {
-                setIsLoading(false);
-                setError(true)
-            }
-            
-            } else {
-            // If data already exists
-            setIsLoading(false);
-            setError(false)
-            setScoreBoard(JSON.parse(existingGameData));
-            }
-        
-     
-        // const BASE_URL = 'https://tic-tac-toe-rio.onrender.com/api/players';
+        const BASE_URL = 'https://wild-jade-lemming-robe.cyclic.app/api/players';
 
-        // const fetchData = async () => {
-        //     setIsLoading(true);
-        //     try {
-        //         const response = await fetch(BASE_URL);
-        //         if (!response.ok) {
-        //             throw new Error(`HTTP error! Status: ${response.status}`);
-        //         }
-        
-        //         const result = await response.json();
-        //         const sortedResult = result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        //         setScoreBoard(sortedResult);
+        const fetchData = async () => {
+            setIsLoading(true);
+            try {
+                const response = await fetch(BASE_URL);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const result = await response.json();
+                const sortedResult = result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                setScoreBoard(sortedResult);
                 
-        //     } catch (error) {
-        //         setError(error.message);
-        //         setIsLoading(false);
-        //     }
-        //     const timeoutId = setTimeout(() => {
-        //         setIsLoading(false);
-        //     }, 2000);
-        //     return () => clearTimeout(timeoutId);
-        // };
+            } catch (error) {
+                setError(error.message);
+                setIsLoading(false);
+            }
+            const timeoutId = setTimeout(() => {
+                setIsLoading(false);
+            }, 2000);
+            return () => clearTimeout(timeoutId);
+        };
     
-        // fetchData();
+        fetchData();
         
     },[]);
     const handleStart = () =>{

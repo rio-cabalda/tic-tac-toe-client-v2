@@ -3,10 +3,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "../Loading";
 import winner1 from '../../assets/winner1.png';
-import {updateGameDataArrayInLocalStorage} from '../../utils/localStorage';
 
 const InGameModal = ({winnerText,clearBoard,setModalIsOpen,gameData}) => {
-
+    const BASE_URL = 'https://wild-jade-lemming-robe.cyclic.app/api/newrecord';
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [preview, setPreview] = useState(false);
@@ -43,25 +42,20 @@ const InGameModal = ({winnerText,clearBoard,setModalIsOpen,gameData}) => {
     const hadleSaveData = async() =>{
         setIsLoading(true);
         
-        // Testing purposes
-        updateGameDataArrayInLocalStorage(gameData);
-
-
-        // const BASE_URL = 'https://tic-tac-toe-rio.onrender.com/api/newrecord';
         try {
-            // const response = await fetch(BASE_URL, {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json', 
-            //     },
-            //     // Convert the data to JSON format
-            //     body: JSON.stringify(gameData), 
-            //     })
-            // if (!response.ok) {
-            //     throw new Error(`HTTP error! Status: ${response.status}`);
-            // }
-            // await response.json();
-            // navigate('/');
+            const response = await fetch(BASE_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', 
+                },
+                // Convert the data to JSON format
+                body: JSON.stringify(gameData), 
+                })
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            await response.json();
+            navigate('/');
         } catch (error) {
             setError(error.message);
         }
