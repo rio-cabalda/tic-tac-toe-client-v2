@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+.text-customStroke {
+        color: black;
+        -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+}
+.customClipPath {
+        clip-path: polygon(100% 0, 100% 66%, 81% 66%, 50% 99%, 49% 66%, 0 66%, 0 0);
+}
+}
