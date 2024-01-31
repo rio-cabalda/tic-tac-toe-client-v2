@@ -10,9 +10,12 @@ function Layout({ children }) {
 
   return (
     <main className="relative flex flex-col items-center p-4 font-play w-full min-h-screen bg-gradient-to-tr from-[#420292] to-[#BC4CF2]"
-      style={backgroundStyles}
     >
+      <img className='absolute top-0 left-0 w-full h-full z-20' src={backgroundImage} style={backgroundStyles} alt="Main background" />
+      <div className='z-30'>
         {children}
+      </div>
+        
     </main>
   )
 }
