@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import { newBoard, winnerArr } from "../data/gameData";
 import { useLocation, useNavigate } from "react-router-dom";
 import InGameModal from "../components/feature/InGameModal";
-import XCard from "../components/XCard";
-import OCard from "../components/OCard";
 import {getAIMove} from '../data/gameData';
 import {aiMoveMessages} from '../data/gameData';
-
+import xIcon from '../assets/x.png';
+import oIcon from '../assets/o.png';
 
 function GameplayPage() {
     const location = useLocation();
@@ -50,7 +49,7 @@ function GameplayPage() {
             if(AItext){
                 setAItext('');
             }
-        }, 5000);
+        }, 2000);
 
         return ()=> clearTimeout(textDuration);
         
@@ -157,25 +156,18 @@ function GameplayPage() {
             //AI function
             if(!checkWin){
                 const randomIndex = Math.floor(Math.random() * aiMoveMessages.length);
-                setAItext(aiMoveMessages[randomIndex]);
-                await new Promise((resolve,reject) => {
+                setTimeout(()=>{
+                    setAItext(aiMoveMessages[randomIndex]);
+                },500)
+                setTimeout(() => {
 
-                try {
-                    setTimeout(() => {
-    
-                    const aiWinningMove = getAIMove(newBoxArr, winnerArr,AIturn,turn);
-                    newBoxArr[aiWinningMove] = AIturn;
-                    setTurnArray(newBoxArr);
-                    checkWinner(newBoxArr);
-                    setCurrentTurn((prev)=>prev+1);
-                    setAITurnBtn(false)
-                    resolve(); // Resolve the promise to indicate the setTimeout has completed
-                    }, 4000);
-
-                } catch (error) {
-                    reject(error); // Reject the promise in case of an error
-                  }
-                });
+                const aiWinningMove = getAIMove(newBoxArr, winnerArr,AIturn,turn);
+                newBoxArr[aiWinningMove] = AIturn;
+                setTurnArray(newBoxArr);
+                checkWinner(newBoxArr);
+                setCurrentTurn((prev)=>prev+1);
+                setAITurnBtn(false)
+                }, 3000);
             }
             
         }
@@ -183,7 +175,6 @@ function GameplayPage() {
     
   return (
     <>
-        {/* <main className="w-full p-4 min-h-screen bg-gradient-to-tr from-[#420292] to-[#BC4CF2]"> */}
         {modalIsOpen? <InGameModal 
         gameData={gameData}
         winnerText={winnerText}
@@ -199,17 +190,17 @@ function GameplayPage() {
                 <h3 className={`text-center text-2xl uppercase font-semibold ${currentTurn % 2 !== 0? ' text-[#FF9D05]':''}`}>{gameData.player1Data.name}</h3>
                 <h4 className="text-center uppercase  font-semibold">Wins: {gameData.player1Data.wins}</h4>
                 <label className="h-12 w-12 border-2 border-white rounded-lg flex justify-center items-center text-3xl font-extrabold bg-gradient-to-bl from-[#A400F4] to-[#5F03A2] ">
-                    <span className={`${gamePlayers?.selectSymbol ==='o'? 'hidden':''} hover:bg-white text-transparent bg-gradient-to-t from-[#EE090C] to-[#FF6365] bg-clip-text -translate-y-1 duration-200  cursor-pointer`}>x</span>
-                    <span className={`${gamePlayers?.selectSymbol ==='x'? 'hidden':''} text-transparent bg-gradient-to-t from-[#FF9D05] to-[#FBE49C] bg-clip-text -translate-y-1 duration-200 cursor-pointer`}>o</span>
+                    {gamePlayers?.selectSymbol ==='x'? 
+                    <img src={xIcon} className="w-full h-full object-cover rounded-lg shadow-2xl" alt="X Icon" />
+                    :
+                    <img src={oIcon} className="w-full h-full object-cover rounded-lg shadow-2xl" alt="X Icon" />}
                 </label>
             </div>
 
             <div className={`relative w-36 flex flex-col justify-center items-center border-solid border-4  ${currentTurn%2 === 0? ' border-4 border-[#FF9D05]':'border-[#9836D6]'} p-4 bg-gradient-to-tl from-[#9A11E7] to-[#D006E4] rounded-lg shadow-md duration-200`}>
                 
                 {/* Ai Text */}
-               {AItext && <p className="absolute text-[10px] text-center text-white -top-3 left-1/2 -translate-x-1/2 bg-[#FF9D05] p-1 customClipPath w-32 h-10 rounded-tl-lg rounded-tr-lg leading-none duration-1000">{AItext}</p>}
-
-                {/* <img className="absolute top-0 left-1/2 -translate-x-1/2 h-[4rem] object-cover z-20" src={aiIcon} alt="AI" /> */}
+                {AItext && <p className="absolute top-1 left-1/2 p-2 w-32 text-[10px] text-center text-white -translate-x-1/2 bg-[#ff9b058c]  rounded-tl-lg rounded-sm leading-none duration-1000">{AItext}</p>}
 
                 {currentTurn%2 === 0 &&
                     <div className="absolute z-30 -top-6 left-0 w-full font-bold uppercase text-center text-[#FF9D05]">AI Turn</div>
@@ -218,8 +209,11 @@ function GameplayPage() {
                 </h3>
                 <h4 className="text-center uppercase  font-bold z-30">Wins: {gameData.player2Data.wins}</h4>
                 <label className="h-12 w-12 border-2 z-30 border-white rounded-lg flex justify-center items-center text-3xl font-extrabold bg-gradient-to-bl from-[#A400F4] to-[#5F03A2]">
-                    <span className={`${gamePlayers?.selectSymbol ==='x'? 'hidden':''} hover:bg-white text-transparent bg-gradient-to-t from-[#EE090C] to-[#FF6365] bg-clip-text -translate-y-1 duration-500  cursor-pointer`}>x</span>
-                    <span className={`${gamePlayers?.selectSymbol ==='o'? 'hidden':''} text-transparent bg-gradient-to-t from-[#FF9D05] to-[#FBE49C] bg-clip-text -translate-y-1 duration-500 cursor-pointer`}>o</span>
+                    {gamePlayers?.selectSymbol ==='o'? 
+                        <img src={xIcon} className="w-full h-full object-cover rounded-lg shadow-2xl" alt="X Icon" />
+                        :
+                        <img src={oIcon} className="w-full h-full object-cover rounded-lg shadow-2xl" alt="X Icon" />
+                    }
                 </label>
             </div>
         </header>
@@ -231,7 +225,11 @@ function GameplayPage() {
                     <button disabled={finishRound || AITurnBtn} key={index} className={`w-16 h-16 bg-gradient-to-t from-[#1A1C4F] to-[#1A1C4F] capitalize disabled:bg-slate-500 rounded-lg  shadow-xl
                     duration-1000 overflow-hidden`}
                     onClick={(e)=>handleSelectedBox(e,index)}
-                    >{(turnArr[index] === 'x' && <XCard />)|| (turnArr[index] === 'o' && <OCard />)}
+                    >{
+                    (turnArr[index] === 'x' && <img src={xIcon} className="w-full h-full object-cover rounded-lg shadow-2xl" alt="X Icon" />)
+                    || 
+                    (turnArr[index] === 'o' && <img src={oIcon} className="w-full h-full object-cover rounded-lg shadow-2xl" alt="O Icon" />)
+                    }
                     </button>
                         )
                     })
