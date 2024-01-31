@@ -60,7 +60,7 @@ function HomePage() {
             </div>
 
             {/* Data from database */}
-            <div  className="-mt-5 p-2 pr-1 rounded-xl shadow-md bg-[#9811E6] "> 
+            <div  className="-mt-5 p-2 pr-1 rounded-xl shadow-md bg-[#9811e69b] "> 
                 <div className="flex flex-col gap-3 rounded-xl max-h-96 overflow-y-scroll overflow-hidden pr-1">
                     {/* Body */}
                     {error? 
