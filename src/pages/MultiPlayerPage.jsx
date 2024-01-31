@@ -18,7 +18,7 @@ function MultiPlayerPage() {
     const  gamePlayers  = location.state || null;
     const navigate = useNavigate();
     const [gameData, setGameData] = useState({
-        rounds: 0,
+        rounds: 1,
         player1Data: {
             name: gamePlayers?.player1,
             wins: 0,
@@ -33,6 +33,7 @@ function MultiPlayerPage() {
         }
     });
 
+    console.log(gameData);
     useEffect(()=>{
         if(!gamePlayers){
             navigate('/');
@@ -157,6 +158,9 @@ function MultiPlayerPage() {
                     }</button>
                         ))
             }
+        </div>
+        <div className="mt-5">
+           <p className="text-transparent bg-gradient-to-r from-[#FFDC80]  via-[#FE9C05]  to-[#FE9C05] bg-clip-text font-semibold">Round: <span className="font-extrabold text-lg">{gameData.rounds}</span></p>
         </div>
     </>
   )
