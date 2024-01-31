@@ -6,7 +6,6 @@ function SoloPlayer({selectSymbol,setSelectSymbol, soloPlayer, setSoloPlayer}) {
   return (
     <div className="flex flex-1 justify-center">
         <div className="flex flex-col justify-center items-center p-4 bg-gradient-to-tr from-[#9A11E7] to-[#D006E4] rounded-lg">
-
         <h3 className="mb-2 font-bold bg-gradient-to-t from-[#FFDC80] to-[#FE9C05] text-transparent bg-clip-text cursor-pointer duration-150" onClick={()=>setSelectSymbol('')}>{selectSymbol? 'Click here to reset symbol': 'Please select your symbol'}</h3>
 
         <div className="flex justify-around w-full">

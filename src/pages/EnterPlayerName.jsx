@@ -62,7 +62,7 @@ function EnterPlayerName() {
 
   return (
     <>
-        <div className="w-full max-w-[414px] py-6 p-2 bg-gradient-to-t mt-5 from-[#FFDC80] to-[#FE9C05] rounded-xl mx-auto">
+        <div className="w-full max-w-[414px] py-6 p-2 bg-gradient-to-t mt-5 from-[#ffdb80b7] to-[#fe9a05a8] rounded-xl mx-auto">
            
               <img className="my-4 w-32 -translate-x-7 mx-auto" src={gameOn} alt="Game on!" />
 

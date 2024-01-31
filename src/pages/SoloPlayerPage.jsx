@@ -183,9 +183,9 @@ function GameplayPage() {
         /> : null }
         
         <header className="h-40 flex justify-center items-center gap-2 mt-8 text-white">
-            <div className={`relative w-36 flex flex-col justify-center items-center border-solid border-4 ${currentTurn%2 !== 0? ' border-[#FF9D05]':'border-[#9836D6]'} p-4 bg-gradient-to-tr from-[#9A11E7] to-[#D006E4] rounded-lg shadow-md duration-200`}>
+            <div className={`relative w-36 flex flex-col justify-center items-center border-solid border-4 ${currentTurn%2 !== 0? ' border-[#FF9D05]':'border-[#9836D6]'} p-4 bg-gradient-to-tr from-[#9911e7b3] to-[#d106e4b1] rounded-lg shadow-md duration-200`}>
                 {currentTurn%2 !== 0 &&
-                    <div className="absolute -top-6 left-0 w-full font-bold uppercase text-center text-[#FF9D05]">Your Turn</div>
+                    <div className="absolute -top-[28px] left-0 w-full font-bold uppercase text-center text-[#FF9D05] bg-gradient-to-t from-[#9911e7b3] to-[#d106e400]">Your Turn</div>
                 }
                 <h3 className={`text-center text-2xl uppercase font-semibold ${currentTurn % 2 !== 0? ' text-[#FF9D05]':''}`}>{gameData.player1Data.name}</h3>
                 <h4 className="text-center uppercase  font-semibold">Wins: {gameData.player1Data.wins}</h4>
@@ -197,13 +197,13 @@ function GameplayPage() {
                 </label>
             </div>
 
-            <div className={`relative w-36 flex flex-col justify-center items-center border-solid border-4  ${currentTurn%2 === 0? ' border-4 border-[#FF9D05]':'border-[#9836D6]'} p-4 bg-gradient-to-tl from-[#9A11E7] to-[#D006E4] rounded-lg shadow-md duration-200`}>
+            <div className={`relative w-36 flex flex-col justify-center items-center border-solid border-4  ${currentTurn%2 === 0? ' border-4 border-[#FF9D05]':'border-[#9836D6]'} p-4 bg-gradient-to-tl from-[#9911e7b3] to-[#d106e4b1] rounded-lg shadow-md duration-200`}>
                 
                 {/* Ai Text */}
                 {AItext && <p className="absolute top-1 left-1/2 p-2 w-32 text-[10px] text-center text-white -translate-x-1/2 bg-[#ff9b058c]  rounded-tl-lg rounded-sm leading-none duration-1000">{AItext}</p>}
 
                 {currentTurn%2 === 0 &&
-                    <div className="absolute z-30 -top-6 left-0 w-full font-bold uppercase text-center text-[#FF9D05]">AI Turn</div>
+                    <div className="absolute -top-[28px] left-0 w-full font-bold uppercase text-center text-[#FF9D05] bg-gradient-to-t from-[#9911e7b3] to-[#d106e400]">AI Turn</div>
                 }
                 <h3 className={`relative z-30 text-center text-2xl uppercase font-semibold ${currentTurn%2 === 0? ' text-[#FF9D05]':''} overflow-visible`}>{gameData.player2Data.name}
                 </h3>
@@ -235,7 +235,7 @@ function GameplayPage() {
                     })
             }
         </div>
-        <div className="mt-5">
+        <div className="mt-5 bg-gradient-to-tl from-[#9911e7b3] to-[#d106e4b1] px-4 py-2 rounded-lg">
            <p className="text-transparent bg-gradient-to-r from-[#FFDC80]  via-[#FE9C05]  to-[#FE9C05] bg-clip-text font-semibold">Round: <span className="font-extrabold text-lg">{gameData.rounds}</span></p>
         </div>
     </>

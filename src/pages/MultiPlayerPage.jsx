@@ -122,9 +122,9 @@ function MultiPlayerPage() {
 
         /> : null }
         <header className="h-40 flex justify-center items-center gap-2 mt-8 text-white">
-            <div className={`relative w-36 flex flex-col justify-center items-center border-solid border-4 ${turn === 'x'? ' border-[#FF9D05]':'border-[#9836D6]'} p-4 bg-gradient-to-tr from-[#9A11E7] to-[#D006E4] rounded-lg shadow-md duration-200`}>
+            <div className={`relative w-36 flex flex-col justify-center items-center border-solid border-4 ${turn === 'x'? ' border-[#FF9D05]':'border-[#9836D6]'} p-4 bg-gradient-to-tr from-[#9911e7b3] to-[#d106e4b1] rounded-lg shadow-md duration-200`}>
                 {turn ==='x'&&
-                    <div className="absolute -top-6 left-0 w-full font-bold uppercase text-center text-[#FF9D05]">Your Turn</div>
+                    <div className="absolute -top-[28px] left-0 w-full font-bold uppercase text-center text-[#FF9D05] bg-gradient-to-t from-[#9911e7b3] to-[#d106e400]">Your Turn</div>
                 }
                 <h3 className={`text-center text-2xl uppercase font-semibold ${turn === 'x'? ' text-[#FF9D05]':''}`}>{gamePlayers?.player1}</h3>
                 <h4 className="text-center uppercase  font-semibold">Wins: {gameData.player1Data.wins}</h4>
@@ -133,9 +133,9 @@ function MultiPlayerPage() {
                 </label>
             </div>
 
-            <div className={`relative w-36 flex flex-col justify-center items-center border-solid  border-4  ${turn === 'o'? ' border-4 border-[#FF9D05]':'border-[#9836D6]'} p-4 bg-gradient-to-tl from-[#9A11E7] to-[#D006E4] rounded-lg shadow-md duration-200`}>
+            <div className={`relative w-36 flex flex-col justify-center items-center border-solid  border-4  ${turn === 'o'? ' border-4 border-[#FF9D05]':'border-[#9836D6]'} p-4 bg-gradient-to-tl from-[#9911e7b3] to-[#d106e4b1] rounded-lg shadow-md duration-200`}>
                 {turn ==='o'&&
-                    <div className="absolute -top-6 left-0 w-full font-bold uppercase text-center text-[#FF9D05]">Your Turn</div>
+                    <div className="absolute -top-[28px] left-0 w-full font-bold uppercase text-center text-[#FF9D05] bg-gradient-to-t from-[#9911e7b3] to-[#d106e400]">Your Turn</div>
                 }
                 <h3 className={`text-center text-lg uppercase font-semibold ${turn === 'o'? ' text-[#FF9D05]':''}`}>{gamePlayers?.player2}</h3>
                 <h4 className="text-center uppercase  font-bold">Wins: {gameData.player2Data.wins}</h4>
@@ -159,7 +159,7 @@ function MultiPlayerPage() {
                         ))
             }
         </div>
-        <div className="mt-5">
+        <div className="mt-5 bg-gradient-to-tl from-[#9911e7b3] to-[#d106e4b1] px-4 py-2 rounded-lg">
            <p className="text-transparent bg-gradient-to-r from-[#FFDC80]  via-[#FE9C05]  to-[#FE9C05] bg-clip-text font-semibold">Round: <span className="font-extrabold text-lg">{gameData.rounds}</span></p>
         </div>
     </>
