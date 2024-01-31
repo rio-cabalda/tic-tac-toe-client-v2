@@ -46,7 +46,7 @@ function HomePage() {
 
     return (
     <>
-        {isLoading? 
+        {false? 
         <div className="relative w-full h-[70vh] text-center">
             <Loading text={'Fetching Game Data'}/>
         </div>
@@ -54,9 +54,9 @@ function HomePage() {
         <section className="px-4 max-w-[414px]">
             <div className="mt-6 font-bold flex flex-col items-center text-white">
                 {/* <h1 className="text-center">SCOREBOARD</h1> */}
-                <h3 className="text-[3rem] leading-[0.5] text-[#fdf2e1]">TIC</h3>
-                <h3 className="text-[3rem] leading-none text-[#fdf2e1]">TAC</h3>
-                <h1 className="transform translate-x-[1rem] -translate-y-8 text-[5rem] leading-none tracking-[2rem] text-center bg-gradient-to-t from-[#FFDC80] to-[#FE9C05] text-transparent bg-clip-text">ToE</h1>
+                <h3 className="text-[3rem] leading-[0.6] text-[#fdf2e1] text-shadow shadow-[#FF9D05]">TIC</h3>
+                <h3 className="text-[3rem] leading-none text-[#fdf2e1] text-shadow shadow-[#FF9D05]">TAC</h3>
+                <h1 className="transform translate-x-[1rem] -translate-y-7 text-[5rem] leading-none tracking-[2rem] text-center bg-gradient-to-t from-[#eccf86] to-[#ff9900] text-transparent bg-clip-text">ToE</h1>
             </div>
 
             {/* Data from database */}

@@ -68,8 +68,8 @@ function EnterPlayerName() {
 
               <div>
                 <div className="flex border-b-2 border-[#FFDC80]">
-                  <button className={`font-semibold rounded-t-lg ${gameMode === 'multi'? 'bg-gradient-to-tr from-[#9A11E7] to-[#D006E4]':'bg-[#FE9C05]'} px-2 py-1 duration-300`} onClick={()=>setGameMode('multi')}>Multi Player</button>
-                  <button className={`font-semibold rounded-t-lg ${gameMode === 'solo'? 'bg-gradient-to-tr from-[#9A11E7] to-[#D006E4]':'bg-[#FE9C05]'} px-2 py-1 duration-300`} onClick={()=>setGameMode('solo')}>Solo Player</button>
+                  <button className={`font-semibold rounded-t-lg ${gameMode === 'multi'? 'bg-gradient-to-tr from-[#9A11E7] to-[#D006E4] text-slate-800':'bg-[#fe9a057f] text-slate-600'} px-2 py-1 duration-300`} onClick={()=>setGameMode('multi')}>Multi Player</button>
+                  <button className={`font-semibold rounded-t-lg ${gameMode === 'solo'? 'bg-gradient-to-tr from-[#9A11E7] to-[#D006E4] text-slate-800':'bg-[#fe9a057f] text-slate-600'} px-2 py-1 duration-300`} onClick={()=>setGameMode('solo')}>Solo Player</button>
                 </div>
                 <div className="w-full  mx-auto flex mt-8 justify-center">
                   <form onSubmit={handleSubmit} className="flex flex-1 flex-col items-center  ">
