@@ -46,7 +46,7 @@ function HomePage() {
 
     return (
     <>
-        {false? 
+        {isLoading? 
         <div className="relative w-full h-[70vh] text-center">
             <Loading text={'Fetching Game Data'}/>
         </div>
