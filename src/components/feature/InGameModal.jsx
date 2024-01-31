@@ -40,9 +40,9 @@ const InGameModal = ({winnerText,clearBoard,setModalIsOpen,gameData}) => {
     },[error,navigate])
     const hadleSaveData = async() =>{
         setIsLoading(true);
-        const BASE_URL = 'https://witty-calf-button.cyclic.app';
+        const BASE_URL = 'https://tic-tac-toe-rio.onrender.com';
         try {
-            const response = await fetch(`${BASE_URL}/api/players`, {
+            const response = await fetch(`${BASE_URL}/api/newrecord`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json', 
@@ -54,7 +54,7 @@ const InGameModal = ({winnerText,clearBoard,setModalIsOpen,gameData}) => {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             await response.json();
-            navigate('/');
+            // navigate('/');
         } catch (error) {
             setError(error.message);
         }

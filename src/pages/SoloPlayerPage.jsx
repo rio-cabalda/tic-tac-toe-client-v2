@@ -125,7 +125,6 @@ function GameplayPage() {
 
             if(gameData.rounds %2 === 0){
                 // SET turn to AI
-                console.log('AI turn first');
                 // setIsAIFirstTurn(true);
                 setAITurnBtn(true);
                 setCurrentTurn(0);

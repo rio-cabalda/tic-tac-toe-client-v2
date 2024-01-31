@@ -3,6 +3,31 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+        scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+        width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+        background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+        background: linear-gradient(to top left, #F98828, #FB963B);
+        border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(to top left, #F98828, #FB963B);
+}
+
 @layer utilities {
 .text-customStroke {
         color: black;

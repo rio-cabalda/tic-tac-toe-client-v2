@@ -22,12 +22,9 @@ function EnterPlayerName() {
       // Access the height using the offsetHeight property
       const multiPlayerHeight = multiPlayerRef.current.offsetHeight;
       const soloPlayerHeight = soloPlayerRef.current.offsetHeight;
-      console.log(multiPlayerHeight,soloPlayerHeight);
       const setHeight = multiPlayerHeight > multiPlayerHeight ? multiPlayerHeight: soloPlayerHeight
       setSelectionHeight(setHeight);
     }, []);
-
-    console.log(selectionHeight);
 
     useEffect(()=>{
       setIsEmptyField('');

@@ -11,7 +11,7 @@ function HomePage() {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        const BASE_URL = 'https://witty-calf-button.cyclic.app';
+        const BASE_URL = 'https://tic-tac-toe-rio.onrender.com';
 
         const fetchData = async () => {
             setIsLoading(true);
@@ -60,21 +60,23 @@ function HomePage() {
             </div>
 
             {/* Data from database */}
-            <div  className="-mt-5 flex flex-col gap-3 p-2 rounded-xl shadow-md bg-[#9811E6] max-h-96 overflow-y-scroll"> 
-                {/* Body */}
-                {error? 
-                <div className="w-full p-2 px-4 flex flex-col rounded-xl shadow-md bg-gradient-to-tl from-[#ebc7a8] to-[#FB963B]">
-                    <h5 className="text-center font-semibold text-white">Something went wrong</h5>
-                </div>
-                :
-                    scoreBoard.length < 1? <div className="w-full p-2 px-4 flex flex-col items-center rounded-xl shadow-md bg-gradient-to-tl from-[#F98828] to-[#FB963B]">
-                        <h5 className="text-center font-semibold text-[#FEFEFF] leading-none">Looks like no one has played yet. Get in the game and make your mark!</h5>
-                        <img className="w-20" src={capooGaming} alt="Capoo Gaming" />
+            <div  className="-mt-5 p-2 rounded-xl shadow-md bg-[#9811E6] "> 
+                <div className="flex flex-col gap-3 rounded-xl max-h-96 overflow-y-scroll overflow-hidden pr-2">
+                    {/* Body */}
+                    {error? 
+                    <div className="w-full p-2 px-4 flex flex-col rounded-xl shadow-md bg-gradient-to-tl from-[#ebc7a8] to-[#FB963B]">
+                        <h5 className="text-center font-semibold text-white">Something went wrong</h5>
+                    </div>
+                    :
+                        scoreBoard.length < 1? <div className="w-full p-2 px-4 flex flex-col items-center rounded-xl shadow-md bg-gradient-to-tl from-[#F98828] to-[#FB963B]">
+                            <h5 className="text-center font-semibold text-[#FEFEFF] leading-none">Looks like no one has played yet. Get in the game and make your mark!</h5>
+                            <img className="w-20" src={capooGaming} alt="Capoo Gaming" />
 
-                        </div> 
-                        :
-                        scoreBoard.map((playersData,index)=>(<ScoreCard key={playersData._id?playersData._id:index} {...playersData} />))     
-                }
+                            </div> 
+                            :
+                            scoreBoard.map((playersData,index)=>(<ScoreCard key={playersData._id?playersData._id:index} {...playersData} />))     
+                    }
+                </div>
             </div>
                 
         </section>
