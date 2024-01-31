@@ -11,12 +11,12 @@ function HomePage() {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        const BASE_URL = 'https://wild-jade-lemming-robe.cyclic.app/api/players';
+        const BASE_URL = 'https://witty-calf-button.cyclic.app';
 
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                const response = await fetch(BASE_URL);
+                const response = await fetch(`${BASE_URL}/api/players`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }

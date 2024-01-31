@@ -5,7 +5,6 @@ import Loading from "../Loading";
 import winner1 from '../../assets/winner1.png';
 
 const InGameModal = ({winnerText,clearBoard,setModalIsOpen,gameData}) => {
-    const BASE_URL = 'https://wild-jade-lemming-robe.cyclic.app/api/newrecord';
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [preview, setPreview] = useState(false);
@@ -41,9 +40,9 @@ const InGameModal = ({winnerText,clearBoard,setModalIsOpen,gameData}) => {
     },[error,navigate])
     const hadleSaveData = async() =>{
         setIsLoading(true);
-        
+        const BASE_URL = 'https://witty-calf-button.cyclic.app';
         try {
-            const response = await fetch(BASE_URL, {
+            const response = await fetch(`${BASE_URL}/api/players`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json', 
