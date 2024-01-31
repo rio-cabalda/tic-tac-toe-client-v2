@@ -19,13 +19,13 @@ html {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-        background: linear-gradient(to top left, #F98828, #FB963B);
+        background: linear-gradient(to top left, #d88d4b, #fca75d);
         border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(to top left, #F98828, #FB963B);
+        background: linear-gradient(to top left, #d88d4b, #fca75d);
 }
 
 @layer utilities {

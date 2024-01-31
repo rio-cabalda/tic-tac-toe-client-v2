@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import InGameModal from "../components/feature/InGameModal";
 import XCard from "../components/XCard";
 import OCard from "../components/OCard";
-
+// import xIcon from '../assets/x.png';
 function MultiPlayerPage() {
     const [currentTurn, setCurrentTurn]=useState(0);
     const [turn,setTurn] = useState('x');
