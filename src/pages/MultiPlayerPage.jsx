@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { newBoard, winnerArr } from "../data/gameData";
 import { useLocation, useNavigate } from "react-router-dom";
 import InGameModal from "../components/feature/InGameModal";
-import XCard from "../components/XCard";
-import OCard from "../components/OCard";
+import xIcon from '../assets/x.png';
+import oIcon from '../assets/o.png';
 
 function MultiPlayerPage() {
     const [currentTurn, setCurrentTurn]=useState(0);
@@ -127,8 +127,8 @@ function MultiPlayerPage() {
                 }
                 <h3 className={`text-center text-2xl uppercase font-semibold ${turn === 'x'? ' text-[#FF9D05]':''}`}>{gamePlayers?.player1}</h3>
                 <h4 className="text-center uppercase  font-semibold">Wins: {gameData.player1Data.wins}</h4>
-                <label className="h-12 w-12 border-2 border-white rounded-lg flex justify-center items-center text-3xl font-extrabold bg-gradient-to-bl from-[#A400F4] to-[#5F03A2] ">
-                    <span className="text-transparent bg-gradient-to-t from-[#EE090C] to-[#FF6365] bg-clip-text -translate-y-1">x</span>
+                <label className="h-12 w-12 border-2 border-white rounded-lg flex justify-center items-center text-3xl font-extrabold ">
+                    <img src={xIcon} className="w-full h-full object-cover rounded-lg shadow-2xl" alt="X Icon" />
                 </label>
             </div>
 
@@ -138,8 +138,8 @@ function MultiPlayerPage() {
                 }
                 <h3 className={`text-center text-lg uppercase font-semibold ${turn === 'o'? ' text-[#FF9D05]':''}`}>{gamePlayers?.player2}</h3>
                 <h4 className="text-center uppercase  font-bold">Wins: {gameData.player2Data.wins}</h4>
-                <label className="h-12 w-12 border-2 border-white rounded-lg flex justify-center items-center text-3xl font-extrabold bg-gradient-to-bl from-[#A400F4] to-[#5F03A2]">
-                    <span className="text-transparent bg-gradient-to-t from-[#FF9D05] to-[#FBE49C] bg-clip-text -translate-y-1">o</span>
+                <label className="h-12 w-12 border-2 border-white rounded-lg flex justify-center items-center text-3xl font-extrabold">
+                    <img src={oIcon} className="w-full h-full object-cover rounded-lg shadow-2xl" alt="X Icon" />
                 </label>
             </div>
         </header>
@@ -148,13 +148,12 @@ function MultiPlayerPage() {
             {
                 turnArr.map((_,index) => 
                 (
-                    <button disabled={finishRound} key={index} className={`w-16 h-16 bg-blue-400 capitalize disabled:bg-slate-500 bg-gradient-to-t from-[#1A1C4F] to-[#1A1C4F]  rounded-lg  shadow-xl
-                    ${turnArr[index] === 'x' && 'from-[#FFDC80] to-[#FE9C05]'}
-                    ${turnArr[index] === 'o' && 'from-[#EE090C] to-[#FF6365]'}
-                    duration-1000 overflow-hidden`}
+                    <button disabled={finishRound} key={index} className={`w-16 h-16 bg-blue-400 capitalize disabled:bg-slate-500 bg-gradient-to-t from-[#1A1C4F] to-[#1A1C4F] focus:outline-none rounded-lg  shadow-xl duration-1000 overflow-hidden`}
                     onClick={(e)=>handleSelectedBox(e,index)}
-                    >{(turnArr[index] === 'x' && <XCard />)|| (turnArr[index] === 'o' && <OCard />)
-            
+                    >{
+                        (turnArr[index] === 'x' && <img src={xIcon} className="w-full h-full object-cover rounded-lg shadow-2xl" alt="X Icon" />)
+                        || 
+                        (turnArr[index] === 'o' && <img src={oIcon} className="w-full h-full object-cover rounded-lg shadow-2xl" alt="O Icon" />)
                     }</button>
                         ))
             }

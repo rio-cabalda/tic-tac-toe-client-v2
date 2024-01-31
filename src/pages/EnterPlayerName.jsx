@@ -26,6 +26,8 @@ function EnterPlayerName() {
       setSelectionHeight(setHeight);
     }, []);
 
+
+
     useEffect(()=>{
       setIsEmptyField('');
       setPlayer1('');
