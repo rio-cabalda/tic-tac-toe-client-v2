@@ -6,8 +6,8 @@ import winner1 from '../../assets/winner1.png';
 
 const InGameModal = ({winnerText,clearBoard,setModalIsOpen,gameData}) => {
     const [error, setError] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const [preview, setPreview] = useState(false);
+    const [isLoading, setIsLoading] = useState(false); 
+    const [preview, setPreview] = useState(false); 
     const [count, setCount] = useState(5);
     const [intervalId, setIntervalId] = useState(null);
 
@@ -40,7 +40,7 @@ const InGameModal = ({winnerText,clearBoard,setModalIsOpen,gameData}) => {
     },[error,navigate])
     const hadleSaveData = async() =>{
         setIsLoading(true);
-        const BASE_URL = 'https://tic-tac-toe-rio.onrender.com';
+        const BASE_URL = 'https://witty-calf-button.cyclic.app';
         try {
             const response = await fetch(`${BASE_URL}/api/newrecord`, {
                 method: 'POST',
@@ -70,30 +70,33 @@ const InGameModal = ({winnerText,clearBoard,setModalIsOpen,gameData}) => {
     
 
     return (
-        <div className={`absolute inset-0 z-50 w-full h-screen  ${preview?'backdrop-blur-[1px]':'backdrop-blur-sm'} duration-300 text-white`}>
+        <div className={`absolute flex justify-center items-center inset-0 z-50 w-full h-screen  ${preview?'backdrop-blur-[1px]':'backdrop-blur-sm'} duration-300 text-white`}>
             {preview? 
-            <div className="w-fit mx-auto mt-10">
-                <h2 className="text-5xl font-bold text-transparent bg-gradient-to-r from-[#FFDC80]  via-[#FE9C05]  to-[#FE9C05] bg-clip-text">{count}</h2>
+            <div className="w-fit mx-auto mt-10 self-start">
+                <h2 className="text-6xl font-bold text-transparent bg-gradient-to-r from-[#FFDC80]  via-[#FE9C05]  to-[#FE9C05] bg-clip-text">{count}</h2>
             </div>
             :
-            <div className="relative bg-gradient-to-t from-[#6504A9] to-[#A001E5] rounded-xl mx-auto gap p-2 w-fit translate-y-1/2 ">
+            <div className="relative min-w-72 h-fit -translate-y-1/2 bg-gradient-to-t from-[#6504A9] to-[#A001E5] rounded-xl p-2">
+                {!isLoading &&
                 <button className="absolute top-2 right-0 text-white bg-gradient-to-r from-[#FFDC80]  via-[#FE9C05]  to-[#FE9C05] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onClick={()=>handlePreview()}>
                     Preview
                 </button>
-                <div className="w-full h-60 flex items-center">
-                    {isLoading? <Loading text={'saving...'}/>
-                    :<div className="w-full h-full flex flex-col justify-center items-center">
-                        <img className="h-32 object-cover" src={winner1} alt="Winner Player" />
-                    <h1 className="text-5xl font-extrabold bg-gradient-to-t from-[#FFDC80] to-[#FE9C05] text-transparent bg-clip-text uppercase">{winnerText==='draw'? `${winnerText}` : 'Winner'}</h1>
-                    <h2 className="text-2xl font-extrabold uppercase">{winnerText==='draw'? '': `${winnerText}`}</h2>
-                    
-                    </div> 
+                }
+                <div className="w-full h-60 translate-y-6">
+                    {isLoading?
+                        <Loading text={'saving...'} />
+                        :<div className="w-full h-full flex flex-col justify-center items-center">
+                            <img className="h-32 object-cover" src={winner1} alt="Winner Player" />
+                            <h1 className="text-5xl font-extrabold bg-gradient-to-t from-[#FFDC80] to-[#FE9C05] text-transparent bg-clip-text uppercase">{winnerText==='draw'? `${winnerText}` : 'Winner'}</h1>
+                            <h2 className="text-2xl font-extrabold uppercase">{winnerText==='draw'? '': `${winnerText}`}</h2>
+                        </div> 
                     }
                 </div>
                     {/* loading... */}
                 
                 <div className="flex gap-5 h-14 min-w-72 justify-center">
-                    {isLoading? null: <>
+                {isLoading? null:
+                    <>
                     <div className="h-fit mt-3 bg-[#fdf2e1] shadow-md rounded-3xl ">
                         <button type="button" onClick={handleContinue} className="transform -translate-y-1 rounded-3xl text-xs mx-auto py-1 px-5 bg-gradient-to-t from-[#9A12E8] to-[#C228E8] active:from-[#a046d4] active:to-[#ce43f0] active:translate-y-0 duration-100">
                             <span className="text-lg font-bold bg-gradient-to-t from-[#FFDC80] to-[#FE9C05] text-transparent bg-clip-text capitalize">Continue</span>
@@ -105,8 +108,8 @@ const InGameModal = ({winnerText,clearBoard,setModalIsOpen,gameData}) => {
                             <span className="text-lg font-bold bg-gradient-to-t from-[#FFDC80] to-[#FE9C05] text-transparent bg-clip-text capitalize">Stop</span>
                         </button>
                     </div>
-                    </>}        
-                </div>
+                </>}
+                </div>        
             </div>
             }
         </div>

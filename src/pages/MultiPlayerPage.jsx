@@ -113,6 +113,7 @@ function MultiPlayerPage() {
     }
   return (
     <>
+    <div className="w-full max-w-[414px] p-2 mt-5 mx-auto">
         {/* <main className="w-full p-4 min-h-screen bg-gradient-to-tr from-[#420292] to-[#BC4CF2]"> */}
         {modalIsOpen? <InGameModal 
         gameData={gameData}
@@ -159,9 +160,35 @@ function MultiPlayerPage() {
                         ))
             }
         </div>
-        <div className="mt-5 bg-gradient-to-tl from-[#9911e7b3] to-[#d106e4b1] px-4 py-2 rounded-lg">
-           <p className="text-transparent bg-gradient-to-r from-[#FFDC80]  via-[#FE9C05]  to-[#FE9C05] bg-clip-text font-semibold">Round: <span className="font-extrabold text-lg">{gameData.rounds}</span></p>
+        
+
+        {/*
+        <div className="w-full flex justify-center">
+            <Link to={'/'} className="bg-[#9A11E7] p-3 rounded-md border-2 border-white">
+                    <svg fill="#ffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 495.398 495.398">
+                    <g><g><g>
+                            <path d="M487.083,225.514l-75.08-75.08V63.704c0-15.682-12.708-28.391-28.413-28.391c-15.669,0-28.377,12.709-28.377,28.391
+                            v29.941L299.31,37.74c-27.639-27.624-75.694-27.575-103.27,0.05L8.312,225.514c-11.082,11.104-11.082,29.071,0,40.158
+                            c11.087,11.101,29.089,11.101,40.172,0l187.71-187.729c6.115-6.083,16.893-6.083,22.976-0.018l187.742,187.747
+                            c5.567,5.551,12.825,8.312,20.081,8.312c7.271,0,14.541-2.764,20.091-8.312C498.17,254.586,498.17,236.619,487.083,225.514z"/>
+                            <path d="M257.561,131.836c-5.454-5.451-14.285-5.451-19.723,0L72.712,296.913c-2.607,2.606-4.085,6.164-4.085,9.877v120.401
+                            c0,28.253,22.908,51.16,51.16,51.16h81.754v-126.61h92.299v126.61h81.755c28.251,0,51.159-22.907,51.159-51.159V306.79
+                            c0-3.713-1.465-7.271-4.085-9.877L257.561,131.836z"/>
+                        </g></g></g>
+                    </svg>
+            </Link>
+                
+             <Link to={'/'} className="bg-[#9A11E7] p-3 rounded-md border-2 border-white">
+                <svg id="Layer_1" fill="#ffff" width="30px" height="30px" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 108.06"><title>back-arrow</title><path d="M63.94,24.28a14.28,14.28,0,0,0-20.36-20L4.1,44.42a14.27,14.27,0,0,0,0,20l38.69,39.35a14.27,14.27,0,0,0,20.35-20L48.06,68.41l60.66-.29a14.27,14.27,0,1,0-.23-28.54l-59.85.28,15.3-15.58Z"/>
+                </svg>
+            </Link> 
         </div>
+        */}
+    </div>
+
+    <div className="mt-5 bg-gradient-to-tl from-[#9911e7b3] to-[#d106e4b1] px-4 py-2 rounded-lg">
+    <p className="text-transparent bg-gradient-to-r from-[#FFDC80]  via-[#FE9C05]  to-[#FE9C05] bg-clip-text font-semibold">Round: <span className="font-extrabold text-lg">{gameData.rounds}</span></p>
+    </div>
     </>
   )
 }

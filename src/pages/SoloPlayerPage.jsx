@@ -200,7 +200,7 @@ function GameplayPage() {
             <div className={`relative w-36 flex flex-col justify-center items-center border-solid border-4  ${currentTurn%2 === 0? ' border-4 border-[#FF9D05]':'border-[#9836D6]'} p-4 bg-gradient-to-tl from-[#9911e7b3] to-[#d106e4b1] rounded-lg shadow-md duration-200`}>
                 
                 {/* Ai Text */}
-                {AItext && <p className="absolute top-1 left-1/2 p-2 w-32 text-[10px] text-center text-white -translate-x-1/2 bg-[#ff9b058c]  rounded-tl-lg rounded-sm leading-none duration-1000">{AItext}</p>}
+                {AItext && <p className="absolute top-1 left-1/2 p-2 w-32 z-30 text-[12px] text-center text-white -translate-x-1/2 bg-[#ff9b05]  rounded-lg leading-none duration-500">{AItext}</p>}
 
                 {currentTurn%2 === 0 &&
                     <div className="absolute -top-[28px] left-0 w-full font-bold uppercase text-center text-[#FF9D05] bg-gradient-to-t from-[#9911e7b3] to-[#d106e400]">AI Turn</div>

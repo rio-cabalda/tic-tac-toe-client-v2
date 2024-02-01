@@ -35,6 +35,15 @@ html {
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: black;
 }
+.radialLoading {
+        /* background: radial-gradient(#9198e5, #e6646400); */
+        background: radial-gradient(closest-side, #9198e5, #420292, #f69c3c00);
+}
+.radialTitle {
+        /* background: radial-gradient(#9198e5, #e6646400); */
+        background: radial-gradient(closest-side, #ff0b79cd, #39c5ece8, #f69c3c00);
+}
+
 .customClipPath {
         clip-path: polygon(100% 0, 100% 66%, 81% 66%, 50% 99%, 49% 66%, 0 66%, 0 0);
 }
